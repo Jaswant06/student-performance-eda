@@ -1,10 +1,15 @@
 import pandas as pd
+from pathlib import Path
+import os
+
+# Keep Matplotlib cache inside the project so the script runs cleanly on this machine.
+BASE_DIR = Path(__file__).resolve().parent.parent
+os.environ.setdefault("MPLCONFIGDIR", str(BASE_DIR / ".matplotlib-cache"))
+
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pathlib import Path
 
 # Base paths
-BASE_DIR = Path(__file__).resolve().parent.parent
 PLOTS_DIR = BASE_DIR / "plots"
 PLOTS_DIR.mkdir(exist_ok=True)
 
